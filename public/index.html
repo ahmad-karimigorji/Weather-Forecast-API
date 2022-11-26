@@ -5,12 +5,71 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./build/tailwind.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Forecast Weather</title>
 </head>
 <body>
 
 
-    
+    <div class="container mx-auto">
+
+
+        <div class="h-screen flex flex-col border-slate-100 px-3 py-10 w-80 mx-auto space-y-10 bg-slate-50">
+            <div class="flex justify-between">
+                <div>
+                    <label class="text-sm" for="search"><span><i class="fa fa-search"></i></span></label>
+                    <input class="ml-2 outline-none" type="text" id="search" placeholder="Search fot places ...">
+                </div>
+                <div>
+                    <span class="text-sm text-slate-100 bg-slate-900 rounded-full p-1">&#8451;</span>
+                    <span class="text-sm text-slate-900 bg-slate-100 rounded-full p-1">&#8457;</span>
+                </div>
+            </div>
+
+            <div class="w-full grow flex">
+                <img class="w-2/3 mx-auto" src="../assets/image/weather-icon.svg" alt="weather icon">
+            </div>
+            <div class="border-b border-slate-500 space-y-4 pb-10">
+                <div class="relative mb-px">
+                    <span class="text-7xl">12</span>
+                    <span class="text-4xl absolute">&#8451;</span>  <!-- &#8457; -->
+                </div>
+                <div>
+                    <span>Monday, </span>
+                    <span class="text-slate-400">16:00</span>
+                    <span class="text-slate-300 block text-xs">Last updated : 15:00</span>
+                </div>
+            </div>
+            <div>
+                <div class="text-sm mb-4">
+                    <span><i class="fa fa-cloud"></i></span>
+                    <span class="ml-2">Mastly Cloudy</span>
+                </div>
+                <div class="text-sm">
+                    <span><i class="fa fa-cloud"></i></span>
+                    <span class="ml-2">Rain - 30%</span>
+                </div>
+            </div>
+            <div class="relative rounded-lg overflow-hidden">
+                <img class="h-20 w-full" src="../assets/image/city-img.jpg" alt="">
+                <span class="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 text-md text-slate-200 font-bold">New York, NY, USA</span>
+            </div>
+        </div>
+
+
+
+
+        <div class="">
+
+
+            
+        </div>
+
+
+
+
+
+    </div>
 
 
 
