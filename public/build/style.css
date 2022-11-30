@@ -1,0 +1,96 @@
+@property --humidityValue {
+    syntax: '<number>'; /* <- defined as type number for the transition to work */
+    initial-value: 0;
+    inherits: false;
+  }
+  @property --airQualifyValue {
+    syntax: '<number>'; /* <- defined as type number for the transition to work */
+    initial-value: 0;
+    inherits: false;
+  }
+  @property --uvValue {
+    syntax: '<number>'; /* <- defined as type number for the transition to work */
+    initial-value: 0;
+    inherits: false;
+  }
+  /* ------ */
+
+[name="uvProgressbar"]{
+    position: relative;
+    width: 100%;
+    aspect-ratio: 2 / 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    border-radius: 50% / 100% 100% 0 0;
+    border-width: 5px 5px 0 5px;
+    border-color: rgba(204, 204, 204, .4);
+}
+[name="uvProgressbar"]::before{
+    content: '';
+    position: absolute;
+    width: calc(100% + 20px); /*4 * border-width = 20px */
+    height: calc(100% + 10px); /*2 * border-width = 10px */
+    overflow: hidden;
+    border-radius: 50% / 100% 100% 0 0;
+    animation: uvProgressbar 4s linear;
+    background: conic-gradient(from .75turn at 50% 100%, #e9b00f calc(var(--uvValue) * 1% / 2), transparent 0);
+    -webkit-mask-image: radial-gradient(at 50% 100%, transparent 52%, rgba(0 ,0 ,0, 1) 54%);
+}
+[name="uvProgressbar"]::after{
+    counter-reset: uvProgressValue var(--uvValue);
+    content: counter(uvProgressValue)'%';
+}
+
+/* ======================================== */
+
+[name="humidityProgressbar"], [name="airQualifyProgressbar"]{
+    position: relative;
+    width: 20px;
+    height: 70px;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 2px solid #fff;
+    outline: 2px solid #ccc;
+}
+
+[name="humidityProgressbar"]::before, [name="airQualifyProgressbar"]::before{
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 100%;
+    left: 50%;
+    background-color: rgb(99 102 241);
+    transform: translateX(-50%);
+    
+}
+[name="humidityProgressbar"]::before{
+  animation: humidityProgressbar 4s linear;
+    bottom: calc(var(--humidityValue) * 1% - 15px);
+
+}
+[name="airQualifyProgressbar"]::before{
+  animation: airQualifyProgressbar 4s linear;
+    bottom: calc(var(--airQualifyValue) * 1% - 15px);
+
+}
+
+
+/* ----- */
+
+
+
+  
+  @keyframes uvProgressbar {
+    0% {--uvValue: 0;}
+    100% {--uvValue: var(--uvValue);}
+  }
+  @keyframes humidityProgressbar {
+    0% {--humidityValue: 0;}
+    100% {--humidityValue: var(--humidityValue);}
+  }
+  @keyframes airQualifyProgressbar {
+    0% {--airQualifyValue: 0}
+    100% {--airQualifyValue: var(--airQualifyValue)}
+  }
