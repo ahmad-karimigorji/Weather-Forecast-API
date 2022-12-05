@@ -115,3 +115,39 @@
     background-repeat: no-repeat;
 
   }
+
+  @keyframes skeletonLoading {
+    to{    background-position-x: 1000px;  }
+  }
+
+  label.skeleton{
+    min-height: 24px;
+  }
+  #current-day-forecast.skeleton{
+    min-height: 56px;
+  }
+  #week-forecast.skeleton{
+    min-height: 150px;
+  }
+  #highlights-titile.skeleton{
+    width: 60px;
+    min-height: 25px;
+    max-height: 25px;
+    overflow: hidden;
+  }
+  #highlights div.skeleton{
+    min-height: 110px;
+    max-height: 120px;
+    overflow: hidden;
+  }
+
+  .no-scroll{
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  /* =====================message============================ */
+
+  .message.display, .back-dray.display{
+    display: block;
+  }

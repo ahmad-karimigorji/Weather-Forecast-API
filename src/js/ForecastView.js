@@ -37,7 +37,7 @@ class ForecastView {
       item.addEventListener("click", (e) => this.changeDegree(e));
     });
 
-    searchInput.addEventListener("change", (e) => setUp(e.target.value));
+    searchInput.addEventListener("change", (e) => this.searchPlace(e));
   }
   setData(data) {
     this.data = data;
@@ -190,10 +190,15 @@ class ForecastView {
     this.displayWeekForecast(this.data);
   }
 
-  // searchPlace(e){
-  //   // console.log(e.target.value);
-  //   setUp(e.target.value)
-  // }
+  searchPlace(e){
+    // console.log(e.target.value);
+    const item = e.target.value.trim()
+    searchInput.value = ''
+    if(item === '') {
+      return
+    }
+    setUp(item)
+  }
 }
 
 export default new ForecastView();
