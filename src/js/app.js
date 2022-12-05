@@ -1,5 +1,5 @@
-import getData from "./Fetch.js";
+import ForecastView from "./ForecastView.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-    getData();
+  ForecastView;
 });

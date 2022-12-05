@@ -1,17 +1,17 @@
-@property --humidityValue {
+@property --humidityPercentage {
     syntax: '<number>'; /* <- defined as type number for the transition to work */
     initial-value: 0;
-    inherits: false;
+    inherits: true;
   }
-  @property --airQualifyValue {
+  @property --airQualifyPercentage {
     syntax: '<number>'; /* <- defined as type number for the transition to work */
     initial-value: 0;
-    inherits: false;
+    inherits: true;
   }
-  @property --uvValue {
+  @property --uvPercentage {
     syntax: '<number>'; /* <- defined as type number for the transition to work */
     initial-value: 0;
-    inherits: false;
+    inherits: true;
   }
   /* ------ */
 
@@ -23,7 +23,7 @@
     justify-content: center;
     align-items: flex-end;
     border-radius: 50% / 100% 100% 0 0;
-    border-width: 5px 5px 0 5px;
+    border-width: 4px 4px 0 4px;
     border-color: rgba(204, 204, 204, .4);
 }
 [name="uvProgressbar"]::before{
@@ -33,13 +33,15 @@
     height: calc(100% + 10px); /*2 * border-width = 10px */
     overflow: hidden;
     border-radius: 50% / 100% 100% 0 0;
-    animation: uvProgressbar 4s linear;
-    background: conic-gradient(from .75turn at 50% 100%, #e9b00f calc(var(--uvValue) * 1% / 2), transparent 0);
-    -webkit-mask-image: radial-gradient(at 50% 100%, transparent 52%, rgba(0 ,0 ,0, 1) 54%);
+    animation: uvProgressbar 4s forwards;
+    background: conic-gradient(from .75turn at 50% 100%, #e9b00f calc(var(--uvValue) * 8.33333333% / 2), transparent 0);
+    -webkit-mask-image: radial-gradient(at 50% 100%, transparent 60%, rgba(0 ,0 ,0, 1) 61%);
 }
 [name="uvProgressbar"]::after{
     counter-reset: uvProgressValue var(--uvValue);
-    content: counter(uvProgressValue)'%';
+    content: counter(uvProgressValue);
+    font-weight: bold;
+    font-size: 25px;
 }
 
 /* ======================================== */
@@ -66,31 +68,50 @@
     
 }
 [name="humidityProgressbar"]::before{
-  animation: humidityProgressbar 4s linear;
+  animation: humidityProgressbar 4s forwards;
     bottom: calc(var(--humidityValue) * 1% - 15px);
 
 }
 [name="airQualifyProgressbar"]::before{
-  animation: airQualifyProgressbar 4s linear;
-    bottom: calc(var(--airQualifyValue) * 1% - 15px);
+  animation: airQualifyProgressbar 4s forwards;
+    bottom: calc(var(--airQualifyValue) * 16.6666667% - 15px);
 
 }
 
 
 /* ----- */
-
-
-
-  
   @keyframes uvProgressbar {
-    0% {--uvValue: 0;}
-    100% {--uvValue: var(--uvValue);}
+    0% {--uvPercentage: 0;}
+    100% {--uvPercentage: var(--uvValue);}
   }
   @keyframes humidityProgressbar {
-    0% {--humidityValue: 0;}
-    100% {--humidityValue: var(--humidityValue);}
+    0% {--humidityPercentage: 0;}
+    100% {--humidityPercentage: var(--humidityValue);}
   }
   @keyframes airQualifyProgressbar {
-    0% {--airQualifyValue: 0}
-    100% {--airQualifyValue: var(--airQualifyValue)}
+    0% {--airQualifyPercentage: 0}
+    100% {--airQualifyPercentage: var(--airQualifyValue)}
+  }
+
+  /* ====================skeleton loading================================== */
+  .skeleton{
+    position: relative;
+    border: 0;
+    /* overflow: hidden; */
+  }
+  .skeleton::before{
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    border-radius: 3px;
+    /* background-color: #ededed; */
+    background: linear-gradient(.25turn, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .5) 10%, rgba(255, 255, 255, 0) 20%) #ededed;
+    animation: skeletonLoading 2.5s infinite forwards;
+    background-position-x: -10px;
+    background-repeat: no-repeat;
+
   }
