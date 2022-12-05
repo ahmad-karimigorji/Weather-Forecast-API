@@ -129,7 +129,7 @@
   #week-forecast.skeleton{
     min-height: 150px;
   }
-  #highlights-titile.skeleton{
+  #highlights-titile.skeleton, #week-titile.skeleton{
     width: 60px;
     min-height: 25px;
     max-height: 25px;
@@ -139,6 +139,9 @@
     min-height: 110px;
     max-height: 120px;
     overflow: hidden;
+  }
+  .footer.skeleton{
+    position: absolute;
   }
 
   .no-scroll{

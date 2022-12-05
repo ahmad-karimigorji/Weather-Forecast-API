@@ -1,4 +1,3 @@
-import getData from "./Fetch.js";
 import setUp from "./setUpData.js";
 
 const weatherImg = document.getElementById("weather-img");
@@ -157,7 +156,7 @@ class ForecastView {
     const airQualifyValue = week[id].day.air_quality["us-epa-index"];
     if (!airQualifyValue) {
       airQualify.innerText = "";
-      airQualifyDescription.innerText = "";
+      airQualifyDescription.innerText = "no information";
       return;
     }
 
@@ -190,14 +189,13 @@ class ForecastView {
     this.displayWeekForecast(this.data);
   }
 
-  searchPlace(e){
-    // console.log(e.target.value);
-    const item = e.target.value.trim()
-    searchInput.value = ''
-    if(item === '') {
-      return
+  searchPlace(e) {
+    const item = e.target.value.trim();
+    searchInput.value = "";
+    if (item === "") {
+      return;
     }
-    setUp(item)
+    setUp(item);
   }
 }
 
