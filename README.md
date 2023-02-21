@@ -1,4 +1,4 @@
-# Weather Forecast API
+# Weather Forecast APP
 
 - Vanila JavaScript
 - Tailwind CSS Library
@@ -6,4 +6,4 @@
 
 ---
 
-[View Online ( Click Here )](https://ahmad-karimigorji.github.io/Weather-Forecast-API/public/)
+[View Online ( Click Here )](https://ahmad-karimigorji.github.io/Weather-Forecast-APP/public/)
