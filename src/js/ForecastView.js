@@ -20,7 +20,7 @@ const airQualifyDescription = document.getElementById(
 
 const inputs = document.querySelectorAll(`[name="degree"]`);
 const highlilghtsTitle = document.getElementById("highlights-titile");
-const searchInput = document.getElementById("search-input");
+const form = document.querySelector("form");
 
 class ForecastView {
   constructor() {
@@ -36,7 +36,7 @@ class ForecastView {
       item.addEventListener("click", (e) => this.changeDegree(e));
     });
 
-    searchInput.addEventListener("change", (e) => this.searchPlace(e));
+    form.addEventListener("submit", (e) => this.searchPlace(e));
   }
   setData(data) {
     this.data = data;
@@ -44,7 +44,7 @@ class ForecastView {
   displayFirstForecast(data) {
     const forecastday = data.forecast.forecastday;
 
-    weatherImg.innerHTML = `<img class="w-2/3 mx-auto" src=${data.current.condition.icon} alt=${data.current.condition.text}>`;
+    weatherImg.innerHTML = `<img class="w-2/3 mx-auto max-h-[100px]" src=${data.current.condition.icon} alt=${data.current.condition.text}>`;
 
     temp.innerText = forecastday[0].day.avgtemp_c;
 
@@ -93,7 +93,7 @@ class ForecastView {
         }
       });
 
-      result += `<div class="min-w-[80px] grow flex flex-col justify-between items-center space-y-3 bg-white rounded-lg p-2 relative overflow-hidden" id="week-day">
+      result += `<div class="min-w-[100px] grow flex flex-col justify-between items-center space-y-3 bg-white rounded-lg p-2 relative overflow-hidden hover:cursor-pointer" id="week-day" data-id=${index}>
       <span>${new Date(item.date).toLocaleDateString([], {
         weekday: "short",
       })}</span>
@@ -104,8 +104,7 @@ class ForecastView {
           <span>${maxTemp}°</span>
           <span class="text-slate-400">${minTemp}°</span>
       </div>
-      <div class="w-full h-full absolute" data-id=${index}></div>
-  </div>`;
+      </div>`;
     });
     weekForecast.innerHTML = result;
 
@@ -114,17 +113,18 @@ class ForecastView {
     const weekDay = document.querySelectorAll("#week-day");
     weekDay.forEach((item) => {
       item.addEventListener("click", (e) =>
-        this.displayWeekDayHighlights(data, e.target.dataset.id)
+        this.displayWeekDayHighlights(data, e.currentTarget.dataset.id)
       );
     });
   }
 
   displayWeekDayHighlights(data, id) {
+    // for first time
     if (!id) id = 0;
     const week = data.forecast.forecastday;
 
     // title
-    if (id === 0) highlilghtsTitle.innerText = `Today's Highlights`;
+    if (id == 0) highlilghtsTitle.innerText = `Today's Highlights`;
     else
       highlilghtsTitle.innerText = `${new Date(
         week[id].date
@@ -190,12 +190,13 @@ class ForecastView {
   }
 
   searchPlace(e) {
-    const item = e.target.value.trim();
-    searchInput.value = "";
-    if (item === "") {
+    e.preventDefault();
+    const item = e.target.lastElementChild.value;
+    if (item.trim() === "") {
       return;
     }
     setUp(item);
+    e.target.lastElementChild.value = "";
   }
 }
 

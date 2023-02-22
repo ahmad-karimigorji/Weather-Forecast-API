@@ -1,52 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./build/tailwind.css">
-    <link rel="stylesheet" href="./build/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" href="../assets/image/weather-icon.svg" type="image/x-icon">
-    <title>Forecast Weather</title>
-</head>
-<body>
-
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./build/tailwind.css" />
+    <link rel="stylesheet" href="./build/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="shortcut icon"
+      href="../assets/image/weather-icon.svg"
+      type="image/x-icon"
+    />
+    <title>Weather Forecast</title>
+  </head>
+  <body>
     <div class="container mx-auto max-w-[1140px] sm:flex relative font-poppins">
+      <!-- current forecast -->
+      <div
+        class="min-h-screen sm:min-h-screen w-80 sm:w-60 md:w-72 lg:w-80 flex flex-col px-4 py-10 mx-auto space-y-10 bg-zinc-100 relative sm:static"
+      >
+        <div>
+          <form
+            class="flex items-center border-b border-slate-400 box-skeleton"
+          >
+            <button type="submit" class="text-sm"
+              ><span><i class="fa fa-search"></i></span
+            ></button>
+            <input
+              class="ml-2 outline-none bg-zinc-100 sm:grow"
+              type="text"
+              id="search-input"
+              placeholder="Search for places ..."
+            />
+          </form>
+          <div class="absolute flex space-x-1 top-0 right-0 pt-10 pr-4">
+            <input
+              class="hidden peer/centigrade"
+              type="radio"
+              name="degree"
+              id="centigrade"
+              checked
+            />
+            <label
+              class="w-5 h-5 flex justify-center items-center text-sm text-black bg-slate-200 rounded-full p-1 peer-checked/centigrade:text-slate-100 peer-checked/centigrade:bg-black box-skeleton hover:cursor-pointer"
+              for="centigrade"
+              >&#8451;</label
+            >
 
-        <!-- current forecast -->
-        <div class="min-h-screen sm:max-h-screen w-80 sm:w-60 md:w-72 lg:w-80 flex flex-col px-4 py-10 mx-auto space-y-10 bg-white bg-zinc-100 relative sm:static">
-            <div class="flex ">
-                <div class="flex items-center border-b border-slate-400 sm:grow box-skeleton">
-                    <label class="text-sm" for="search"><span><i class="fa fa-search"></i></span></label>
-                    <input class="ml-2 outline-none bg-zinc-100 sm:grow" type="text" id="search-input" placeholder="Search for places ...">
-                </div>
-                <div class="absolute flex space-x-1 top-0 right-0 pt-10 pr-4">
-                    <input class="hidden peer/centigrade" type="radio" name="degree" id="centigrade" checked>
-                    <label class="w-5 h-5 flex justify-center items-center text-sm text-black bg-slate-2R00 rounded-full p-1 peer-checked/centigrade:text-slate-100 peer-checked/centigrade:bg-black box-skeleton" for="centigrade">&#8451;</label>
+            <input
+              class="hidden peer/fahrenheit"
+              type="radio"
+              name="degree"
+              id="fahrenheit"
+            />
+            <label
+              class="w-5 h-5 flex justify-center items-center text-sm text-black bg-slate-200 rounded-full p-1 peer-checked/fahrenheit:text-slate-100 peer-checked/fahrenheit:bg-black box-skeleton hover:cursor-pointer"
+              for="fahrenheit"
+              >&#8457;</label
+            >
+          </div>
+        </div>
 
-                    <input class="hidden peer/fahrenheit" type="radio" name="degree" id="fahrenheit">
-                    <label class="w-5 h-5 flex justify-center items-center text-sm text-black bg-slate-200 rounded-full p-1 peer-checked/fahrenheit:text-slate-100 peer-checked/fahrenheit:bg-black box-skeleton" for="fahrenheit">&#8457;</label>
-                    
-                </div>
-            </div>
-
-            <div class="w-full grow flex box-skeleton" id="weather-img"></div>
-            <div class="border-b border-slate-400 space-y-4 pb-10 box-skeleton">
-                <div class="relative mb-px">
-                    <span class="text-7xl" id="temp"></span>
-                    <span class="text-4xl absolute">&#8451;</span>
-                </div>
-                <div id="date-forecast">
-                    <!-- <span>Monday, </span>
+        <div class="w-full grow flex box-skeleton justify-center items-center" id="weather-img"></div>
+        <div class="border-b border-slate-400 space-y-4 pb-10 box-skeleton">
+          <div class="relative mb-px">
+            <span class="text-7xl" id="temp"></span>
+            <span class="text-4xl absolute">&#8451;</span>
+          </div>
+          <div id="date-forecast">
+            <!-- <span>Monday, </span>
                     <span class="text-slate-400" id="date">16:00</span>
                     <span class="text-slate-300 block text-xs" id="last-update">Last updated : 20:00</span> -->
-                </div>
-            </div>
-            <div class="box-skeleton" id="current-day-forecast">
-                <!-- <div class="text-sm mb-4">
+          </div>
+        </div>
+        <div class="box-skeleton" id="current-day-forecast">
+          <!-- <div class="text-sm mb-4">
                     <span><img src="" alt=""></span>
                     <span class="ml-2">Mastly Cloudy</span>
                 </div>
@@ -54,21 +95,36 @@
                     <span class="text-sky-300"><i class="fa fa-cloud-rain"></i></span>
                     <span class="ml-2">Rain - 30%</span>
                 </div> -->
-            </div>
-            <div class="relative overflow-hidden box-skeleton">
-                <img class="h-28 w-full brightness-50 rounded-lg" src="../assets/image/city-img.jpg" alt="city">
-                <div class="w-full text-center absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 text-md text-slate-200 font-bold" id="city-name"></div>
-            </div>
         </div>
+        <div class="relative overflow-hidden box-skeleton">
+          <img
+            class="h-28 w-full brightness-50 rounded-lg"
+            src="../assets/image/city-img.jpg"
+            alt="city"
+          />
+          <div
+            class="w-full text-center absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 text-md text-slate-200 font-bold"
+            id="city-name"
+          ></div>
+        </div>
+      </div>
 
-        <!-- details -->
-        <div class="w-80 mx-auto px-4 pt-5 pb-10 sm:py-10 bg-zinc-200 sm:max-h-screen sm:flex sm:flex-col sm:justify-between sm:grow">
-
-            <div>
-                <h2 class="font-bold border-b border-slate-400 inline-block pb-px mb-4 box-skeleton" id="week-titile">Week</h2>
-                <div class="w-full flex overflow-x-auto space-x-2 pb-2 mb-10 box-skeleton" id="week-forecast">
-
-                    <!-- <div class="min-w-[80px] flex flex-col justify-between items-center space-y-3 bg-white rounded-lg p-2">
+      <!-- details -->
+      <div
+        class="w-80 mx-auto pl-4 pr-2 pt-5 pb-10 sm:py-10 bg-zinc-200 sm:min-h-screen sm:flex sm:flex-col sm:justify-between sm:grow"
+      >
+        <div class="pr-2">
+          <h2
+            class="font-bold border-b border-slate-400 inline-block pb-px mb-4 box-skeleton"
+            id="week-titile"
+          >
+            Week
+          </h2>
+          <div
+            class="w-full flex overflow-x-auto space-x-2 pb-2 mb-10 box-skeleton"
+            id="week-forecast"
+          >
+            <!-- <div class="min-w-[80px] flex flex-col justify-between items-center space-y-3 bg-white rounded-lg p-2">
                         <span>Sun</span>
                         <img class="w-1/2" src="../assets/image/weather-icon.svg" alt="">
                         <div>
@@ -124,99 +180,108 @@
                             <span class="text-slate-400">-4°</span>
                         </div>
                     </div> -->
+          </div>
+        </div>
 
-
-                </div>
-            </div>
-
-            <div class="sm:overflow-y-auto" id="highlights">
-                <h2 class="font-bold border-b border-slate-400 inline-block pb-px mb-4 box-skeleton" id="highlights-titile"></h2>
-                <div class="w-full flex flex-wrap justify-evenly gap-4 sm:gap-2">
-                    <div class="w-[250px] sm:w-[170px] sm:grow lg:w-[220px] flex flex-col justify-between items-start space-y-3 bg-white rounded-lg py-4 px-8 sm:px-3 box-skeleton" id="uv-index">
-
-                        <!-- <h3 class="text-sm">UV index</h3>
+        <div id="highlights">
+          <h2
+            class="font-bold border-b border-slate-400 inline-block pb-px mb-4 box-skeleton"
+            id="highlights-titile"
+          ></h2>
+          <div class="w-full flex flex-wrap justify-evenly gap-4 sm:gap-2 sm:overflow-y-auto sm:max-h-[420px] pr-2">
+            <div
+              class="w-[250px] sm:w-[170px] sm:grow lg:w-[220px] flex flex-col justify-between items-start space-y-3 bg-white rounded-lg py-4 px-8 sm:px-3 box-skeleton"
+              id="uv-index"
+            >
+              <!-- <h3 class="text-sm">UV index</h3>
                         <div role="progressbar" name="uvProgressbar" aria-valuemin="0" aria-valuemax="12" style="--uvValue: 6"></div> -->
-                    </div>
-
-                    <div class="w-[250px] sm:w-[170px] sm:grow lg:w-[220px] flex flex-col justify-between items-start space-y-3 bg-white rounded-lg py-4 px-8 sm:px-3 box-skeleton">
-                        <h3 class="text-sm">Wind Status</h3>
-                        <span class="font-bold text-4xl" id="wind-kph"></span>
-                        <div class="flex justify-between items-center">
-                        <span class="flex justify-center items-center text-indigo-500 border w-7 h-7 rounded-full"><i class="fa fa-crosshairs"></i></span>
-                            <span class="font-bold ml-2" id="wind-dir"></span>
-                        </div> 
-                        
-                    </div>
-
-                    <div class="w-[250px] sm:w-[170px] sm:grow lg:w-[220px] flex flex-col justify-between items-start space-y-3 bg-white rounded-lg py-4 px-8 sm:px-3 box-skeleton">
-                        <h3 class="text-sm">Sunrise & Sunset</h3>
-                        <div class="flex justify-between items-center">
-                            <span class="text-yellow-500 text-4xl"><i class="fa fa-sun"></i></span>
-                            <div class="ml-6">
-                                <span class="font-semibold" id="sunrise"></span>
-                            </div>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <span class="text-yellow-500 text-4xl"><i class="fa fa-sun"></i></span>
-                            <div class="ml-6">
-                                <span class="font-semibold" id="sunset"></span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="w-[250px] sm:w-[170px] sm:grow lg:w-[220px] flex flex-col justify-between items-start space-y-3 bg-white rounded-lg py-4 px-8 sm:px-3 box-skeleton">
-                        <h3 class="text-sm">Humidity</h3>
-                        <div class="flex w-full justify-between items-center" id="humidity">
-                            <!-- <span class="font-bold text-2xl">12&#37;</span>
-                            <div role="progressbar" name="humidityProgressbar" aria-valuenow="67" aria-valuemin="0" aria-valuemax="100" style="--humidityValue: 67"></div> -->
-                        </div>
-                    </div>
-
-                    <div class="w-[250px] sm:w-[170px] sm:grow lg:w-[220px] flex flex-col justify-between items-start space-y-3 bg-white rounded-lg py-4 px-8 sm:px-3 box-skeleton">
-                        <h3 class="text-sm">Visibility</h3>
-                        <span class="font-bold text-4xl" id="visibility"></span>
-                    </div>
-
-                    <div class="w-[250px] sm:w-[170px] sm:grow lg:w-[220px] flex flex-col justify-between items-start space-y-3 bg-white rounded-lg py-4 px-8 sm:px-3 box-skeleton">
-                        <h3 class="text-sm">Air Qualify</h3>
-                        <div class="flex w-full justify-between items-center" id="air-qualify">
-                            <!-- <span class="font-bold text-2xl">67&#37;</span>
-                            <div class="" role="progressbar" name="airQualifyProgressbar" aria-valuemin="1" aria-valuemax="6" style="--airQualifyValue: 67"></div> -->
-                        </div>
-                        <div class="">
-                            <span id="air-qualify-description"></span>
-                        </div>
-                    </div>
-
-
-                </div>
             </div>
 
+            <div
+              class="w-[250px] sm:w-[170px] sm:grow lg:w-[220px] flex flex-col justify-between items-start space-y-3 bg-white rounded-lg py-4 px-8 sm:px-3 box-skeleton"
+            >
+              <h3 class="text-sm">Wind Status</h3>
+              <span class="font-bold text-4xl" id="wind-kph"></span>
+              <div class="flex justify-between items-center">
+                <span
+                  class="flex justify-center items-center text-indigo-500 border w-7 h-7 rounded-full"
+                  ><i class="fa fa-crosshairs"></i
+                ></span>
+                <span class="font-bold ml-2" id="wind-dir"></span>
+              </div>
+            </div>
 
+            <div
+              class="w-[250px] sm:w-[170px] sm:grow lg:w-[220px] flex flex-col justify-between items-start space-y-3 bg-white rounded-lg py-4 px-8 sm:px-3 box-skeleton"
+            >
+              <h3 class="text-sm">Sunrise & Sunset</h3>
+              <div class="flex justify-between items-center">
+                <span class="text-yellow-500 text-4xl"
+                  ><i class="fa fa-sun"></i
+                ></span>
+                <div class="ml-6">
+                  <span class="font-semibold" id="sunrise"></span>
+                </div>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="text-yellow-500 text-4xl"
+                  ><i class="fa fa-sun"></i
+                ></span>
+                <div class="ml-6">
+                  <span class="font-semibold" id="sunset"></span>
+                </div>
+              </div>
+            </div>
 
-            
+            <div
+              class="w-[250px] sm:w-[170px] sm:grow lg:w-[220px] flex flex-col justify-between items-start space-y-3 bg-white rounded-lg py-4 px-8 sm:px-3 box-skeleton"
+            >
+              <h3 class="text-sm">Humidity</h3>
+              <div
+                class="flex w-full justify-between items-center"
+                id="humidity"
+              >
+                <!-- <span class="font-bold text-2xl">12&#37;</span>
+                            <div role="progressbar" name="humidityProgressbar" aria-valuenow="67" aria-valuemin="0" aria-valuemax="100" style="--humidityValue: 67"></div> -->
+              </div>
+            </div>
+
+            <div
+              class="w-[250px] sm:w-[170px] sm:grow lg:w-[220px] flex flex-col justify-between items-start space-y-3 bg-white rounded-lg py-4 px-8 sm:px-3 box-skeleton"
+            >
+              <h3 class="text-sm">Visibility</h3>
+              <span class="font-bold text-4xl" id="visibility"></span>
+            </div>
+
+            <div
+              class="w-[250px] sm:w-[170px] sm:grow lg:w-[220px] flex flex-col justify-between items-start space-y-3 bg-white rounded-lg py-4 px-8 sm:px-3 box-skeleton"
+            >
+              <h3 class="text-sm">Air Qualify</h3>
+              <div
+                class="flex w-full justify-between items-center"
+                id="air-qualify"
+              >
+                <!-- <span class="font-bold text-2xl">67&#37;</span>
+                            <div class="" role="progressbar" name="airQualifyProgressbar" aria-valuemin="1" aria-valuemax="6" style="--airQualifyValue: 67"></div> -->
+              </div>
+              <div class="">
+                <span id="air-qualify-description"></span>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
 
-        <!-- message -->
-        <div class="message hidden bg-gray-100 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 px-10 py-12 align-center rounded-lg"></div>
-        <div class="back-dray hidden w-full h-full absolute top-0 left-0 bg-gray-500/30 z-40"></div>
-
-        <div class="footer w-80 sm:w-full absolute bottom-0 left-1/2 -translate-x-1/2 bg-black/30 flex justify-evenly sm:justify-center items-center text-xs py-0.5 sm:space-x-6 text-slate-700 box-skeleton">
-            <p><a class="text-blue-700 hover:underline" href="https://www.weatherapi.com/" target="_blank">WeatherAPI.com</a></p>
-            <p>coded by: <a class="text-blue-700 hover:underline" href="https://github.com/ahmad-karimigorji" target="_blank"> Ahmad Karimi Gorji</a></p>
-        </div>
-        
+      <!-- message -->
+      <div
+        class="message hidden bg-gray-100 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 px-10 py-12 align-center rounded-lg"
+      ></div>
+      <div
+        class="back-dray hidden w-full h-full absolute top-0 left-0 bg-gray-500/30 z-40"
+      ></div>
     </div>
-    <!-- <footer class="container max-w-[1140px] flex justify-center items-center">
-
-        <div class="w-80 sm:w-full bg-black/30 text-blue-600 flex justify-center items-center text-xs py-0.5 space-x-4">
-            <a href="">Forecast Weather API / </a>
-            <a href="https://github.com/ahmad-karimigorji"> Ahmad Karimi Gorji</a>
-        </div>
-    </footer> -->
-
 
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
     <script type="module" src="../src/js/app.js"></script>
-</body>
+  </body>
 </html>

@@ -1,156 +1,212 @@
 @property --humidityPercentage {
-    syntax: '<number>'; /* <- defined as type number for the transition to work */
-    initial-value: 0;
-    inherits: true;
-  }
-  @property --airQualifyPercentage {
-    syntax: '<number>'; /* <- defined as type number for the transition to work */
-    initial-value: 0;
-    inherits: true;
-  }
-  @property --uvPercentage {
-    syntax: '<number>'; /* <- defined as type number for the transition to work */
-    initial-value: 0;
-    inherits: true;
-  }
-  /* ------ */
+  syntax: "<number>"; /* <- defined as type number for the transition to work */
+  initial-value: 0;
+  inherits: true;
+}
+@property --airQualifyPercentage {
+  syntax: "<number>"; /* <- defined as type number for the transition to work */
+  initial-value: 0;
+  inherits: true;
+}
+@property --uvPercentage {
+  syntax: "<number>"; /* <- defined as type number for the transition to work */
+  initial-value: 0;
+  inherits: true;
+}
+/* ------ */
 
-[name="uvProgressbar"]{
-    position: relative;
-    width: 100%;
-    aspect-ratio: 2 / 1;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    border-radius: 50% / 100% 100% 0 0;
-    border-width: 4px 4px 0 4px;
-    border-color: rgba(204, 204, 204, .4);
+[name="uvProgressbar"] {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  border-radius: 50% / 100% 100% 0 0;
+  border-width: 4px 4px 0 4px;
+  border-color: rgba(204, 204, 204, 0.4);
 }
-[name="uvProgressbar"]::before{
-    content: '';
-    position: absolute;
-    width: calc(100% + 20px); /*4 * border-width = 20px */
-    height: calc(100% + 10px); /*2 * border-width = 10px */
-    overflow: hidden;
-    border-radius: 50% / 100% 100% 0 0;
-    animation: uvProgressbar 4s forwards;
-    background: conic-gradient(from .75turn at 50% 100%, #e9b00f calc(var(--uvValue) * 8.33333333% / 2), transparent 0);
-    -webkit-mask-image: radial-gradient(at 50% 100%, transparent 60%, rgba(0 ,0 ,0, 1) 61%);
+[name="uvProgressbar"]::before {
+  content: "";
+  position: absolute;
+  width: calc(100% + 20px); /*4 * border-width = 20px */
+  height: calc(100% + 10px); /*2 * border-width = 10px */
+  overflow: hidden;
+  border-radius: 50% / 100% 100% 0 0;
+  animation: uvProgressbar 4s forwards;
+  background: conic-gradient(
+    from 0.75turn at 50% 100%,
+    #e9b00f calc(var(--uvValue) * 8.33333333% / 2),
+    transparent 0
+  );
+  -webkit-mask-image: radial-gradient(
+    at 50% 100%,
+    transparent 60%,
+    rgba(0, 0, 0, 1) 61%
+  );
 }
-[name="uvProgressbar"]::after{
-    counter-reset: uvProgressValue var(--uvValue);
-    content: counter(uvProgressValue);
-    font-weight: bold;
-    font-size: 25px;
+[name="uvProgressbar"]::after {
+  counter-reset: uvProgressValue var(--uvValue);
+  content: counter(uvProgressValue);
+  font-weight: bold;
+  font-size: 25px;
 }
 
 /* ======================================== */
 
-[name="humidityProgressbar"], [name="airQualifyProgressbar"]{
-    position: relative;
-    width: 20px;
-    height: 70px;
-    border-radius: 20px;
-    overflow: hidden;
-    border: 2px solid #fff;
-    outline: 2px solid #ccc;
+[name="humidityProgressbar"],
+[name="airQualifyProgressbar"] {
+  position: relative;
+  width: 20px;
+  height: 70px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 2px solid #fff;
+  outline: 2px solid #ccc;
 }
 
-[name="humidityProgressbar"]::before, [name="airQualifyProgressbar"]::before{
-    content: '';
-    position: absolute;
-    width: 15px;
-    height: 15px;
-    border-radius: 100%;
-    left: 50%;
-    background-color: rgb(99 102 241);
-    transform: translateX(-50%);
-    
+[name="humidityProgressbar"]::before,
+[name="airQualifyProgressbar"]::before {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+  left: 50%;
+  background-color: rgb(99 102 241);
+  transform: translateX(-50%);
 }
-[name="humidityProgressbar"]::before{
+[name="humidityProgressbar"]::before {
   animation: humidityProgressbar 4s forwards;
-    bottom: calc(var(--humidityValue) * 1% - 15px);
-
+  bottom: calc(var(--humidityValue) * 1% - 15px);
 }
-[name="airQualifyProgressbar"]::before{
+[name="airQualifyProgressbar"]::before {
   animation: airQualifyProgressbar 4s forwards;
-    bottom: calc(var(--airQualifyValue) * 16.6666667% - 15px);
-
+  bottom: calc(var(--airQualifyValue) * 16.6666667% - 15px);
 }
-
 
 /* ----- */
-  @keyframes uvProgressbar {
-    0% {--uvPercentage: 0;}
-    100% {--uvPercentage: var(--uvValue);}
+@keyframes uvProgressbar {
+  0% {
+    --uvPercentage: 0;
   }
-  @keyframes humidityProgressbar {
-    0% {--humidityPercentage: 0;}
-    100% {--humidityPercentage: var(--humidityValue);}
+  100% {
+    --uvPercentage: var(--uvValue);
   }
-  @keyframes airQualifyProgressbar {
-    0% {--airQualifyPercentage: 0}
-    100% {--airQualifyPercentage: var(--airQualifyValue)}
+}
+@keyframes humidityProgressbar {
+  0% {
+    --humidityPercentage: 0;
   }
+  100% {
+    --humidityPercentage: var(--humidityValue);
+  }
+}
+@keyframes airQualifyProgressbar {
+  0% {
+    --airQualifyPercentage: 0;
+  }
+  100% {
+    --airQualifyPercentage: var(--airQualifyValue);
+  }
+}
 
-  /* ====================skeleton loading================================== */
-  .skeleton{
-    position: relative;
-    border: 0;
-    /* overflow: hidden; */
-  }
-  .skeleton::before{
-    content: '';
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 10;
-    border-radius: 3px;
-    /* background-color: #ededed; */
-    background: linear-gradient(.25turn, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .5) 10%, rgba(255, 255, 255, 0) 20%) #ededed;
-    animation: skeletonLoading 2.5s infinite forwards;
-    background-position-x: -10px;
-    background-repeat: no-repeat;
+/* ====================skeleton loading================================== */
+.skeleton {
+  position: relative;
+  border: 0;
+}
+.skeleton::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  border-radius: 3px;
+  /* background-color: #ededed; */
+  background: linear-gradient(
+      0.25turn,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.5) 10%,
+      rgba(255, 255, 255, 0) 20%
+    )
+    #ededed;
+  animation: skeletonLoading 2.5s infinite forwards;
+  background-position-x: -10px;
+  background-repeat: no-repeat;
+}
 
+@keyframes skeletonLoading {
+  to {
+    background-position-x: 1000px;
   }
+}
 
-  @keyframes skeletonLoading {
-    to{    background-position-x: 1000px;  }
-  }
+label.skeleton {
+  min-height: 24px;
+  background-color: transparent !important;
+}
+form.skeleton button {
+  display: none;
+}
+#current-day-forecast.skeleton {
+  min-height: 56px;
+}
+.skeleton img {
+  padding: 1px;
+}
+#week-forecast.skeleton {
+  min-height: 150px;
+  overflow-x: clip;
+}
+#highlights-titile.skeleton,
+#week-titile.skeleton {
+  width: 70px;
+  min-height: 25px;
+  max-height: 25px;
+  overflow: hidden;
+}
+#highlights div.skeleton {
+  min-height: 110px;
+  max-height: 120px;
+  overflow: hidden;
+}
+.footer.skeleton {
+  position: absolute;
+}
 
-  label.skeleton{
-    min-height: 24px;
-  }
-  #current-day-forecast.skeleton{
-    min-height: 56px;
-  }
-  #week-forecast.skeleton{
-    min-height: 150px;
-  }
-  #highlights-titile.skeleton, #week-titile.skeleton{
-    width: 60px;
-    min-height: 25px;
-    max-height: 25px;
-    overflow: hidden;
-  }
-  #highlights div.skeleton{
-    min-height: 110px;
-    max-height: 120px;
-    overflow: hidden;
-  }
-  .footer.skeleton{
-    position: absolute;
-  }
+.no-scroll {
+  height: 100vh;
+  overflow: hidden;
+}
 
-  .no-scroll{
-    height: 100vh;
-    overflow: hidden;
-  }
+/* =====================message============================ */
 
-  /* =====================message============================ */
+.message.display,
+.back-dray.display {
+  display: block;
+}
 
-  .message.display, .back-dray.display{
-    display: block;
-  }
+/* ===================== scroll =================== */
+
+#week-forecast::-webkit-scrollbar {
+  height: 5px;
+}
+#highlights > div::-webkit-scrollbar {
+  width: 5px;
+  padding-left: 2px;
+}
+
+#week-forecast::-webkit-scrollbar-track,
+#highlights > div::-webkit-scrollbar-track {
+  background: #eee;
+  border-radius: 20px;
+}
+
+#week-forecast::-webkit-scrollbar-thumb,
+#highlights > div::-webkit-scrollbar-thumb {
+  background-color: #c5c5c5;
+  border-radius: 20px;
+}
