@@ -108,19 +108,18 @@ class ForecastView {
     });
     weekForecast.innerHTML = result;
 
-    this.displayWeekDayHighlights(data);
-
     const weekDay = document.querySelectorAll("#week-day");
     weekDay.forEach((item) => {
       item.addEventListener("click", (e) =>
         this.displayWeekDayHighlights(data, e.currentTarget.dataset.id)
       );
     });
+    
+    // for first time
+    this.displayWeekDayHighlights(data, 0);
   }
 
   displayWeekDayHighlights(data, id) {
-    // for first time
-    if (!id) id = 0;
     const week = data.forecast.forecastday;
 
     // title
