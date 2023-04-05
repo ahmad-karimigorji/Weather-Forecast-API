@@ -607,6 +607,9 @@ video {
 .min-w-\[250px\] {
   min-width: 250px;
 }
+.min-w-\[100px\] {
+  min-width: 100px;
+}
 .max-w-\[1140px\] {
   max-width: 1140px;
 }
@@ -620,15 +623,6 @@ video {
 .-translate-x-1\/2 {
   --tw-translate-x: -50%;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-@keyframes pulse {
-
-  50% {
-    opacity: .5;
-  }
-}
-.animate-pulse {
-  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 .flex-col {
   flex-direction: column;
