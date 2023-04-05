@@ -39,6 +39,14 @@ class LoadingAndMessageView {
     message.classList.remove("display");
     backDray.classList.remove("display");
   }
+
+  displayLocationMessage(errorText) {
+    message.classList.add("display");
+    backDray.classList.add("display");
+    container.classList.add("no-scroll");
+
+    message.innerText = errorText;
+  }
 }
 
 export default new LoadingAndMessageView();

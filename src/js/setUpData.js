@@ -1,7 +1,7 @@
 import getData from "./Fetch.js";
 import ForecastView from "./ForecastView.js";
 
-export default function setUp(input = "behshahr") {
+export default function setUp(input = "Tehran") {
   getData(input)
     .then((data) => {
       console.log(data);
