@@ -12,7 +12,9 @@ class LoadingAndMessageView {
 
   displaySkeletonLoading() {
     boxSkeleton.forEach((box) => {
-      box.classList.add("skeleton");
+      if (!box.classList.contains("skeleton")) {
+        box.classList.add("skeleton");
+      }
       container.classList.add("no-scroll");
     });
   }

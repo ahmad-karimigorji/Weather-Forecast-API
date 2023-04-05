@@ -34,7 +34,7 @@
       >
         <div>
           <form
-            class="flex items-center border-b border-slate-400 box-skeleton"
+            class="flex items-center border-b border-slate-400 box-skeleton skeleton"
           >
             <button type="submit" class="text-sm"></button>
               <span><i class="fa fa-search"></i></span>
@@ -55,7 +55,7 @@
               checked
             />
             <label
-              class="w-5 h-5 flex justify-center items-center text-sm text-black bg-slate-200 rounded-full p-1 peer-checked/centigrade:text-slate-100 peer-checked/centigrade:bg-black box-skeleton hover:cursor-pointer"
+              class="w-5 h-5 flex justify-center items-center text-sm text-black bg-slate-200 rounded-full p-1 peer-checked/centigrade:text-slate-100 peer-checked/centigrade:bg-black box-skeleton skeleton hover:cursor-pointer"
               for="centigrade"
               >&#8451;</label
             >
@@ -67,14 +67,14 @@
               id="fahrenheit"
             />
             <label
-              class="w-5 h-5 flex justify-center items-center text-sm text-black bg-slate-200 rounded-full p-1 peer-checked/fahrenheit:text-slate-100 peer-checked/fahrenheit:bg-black box-skeleton hover:cursor-pointer"
+              class="w-5 h-5 flex justify-center items-center text-sm text-black bg-slate-200 rounded-full p-1 peer-checked/fahrenheit:text-slate-100 peer-checked/fahrenheit:bg-black box-skeleton skeleton hover:cursor-pointer"
               for="fahrenheit"
               >&#8457;</label
             >
           </div>
 
           <button
-            class="text-sm text-slate-500 mt-1.5 box-skeleton"
+            class="text-sm text-slate-500 mt-1.5 box-skeleton skeleton"
             id="get-location"
           >
             <span class="mr-1 text-xs"><i class="fa fa-redo"></i></span>Get
@@ -83,10 +83,10 @@
         </div>
 
         <div
-          class="w-full grow flex box-skeleton justify-center items-center"
+          class="w-full grow flex box-skeleton skeleton justify-center items-center"
           id="weather-img"
         ></div>
-        <div class="border-b border-slate-400 space-y-4 pb-10 box-skeleton">
+        <div class="border-b border-slate-400 space-y-4 pb-10 box-skeleton skeleton">
           <div class="relative mb-px">
             <span class="text-7xl" id="temp"></span>
             <span class="text-4xl absolute">&#8451;</span>
@@ -97,7 +97,7 @@
                     <span class="text-slate-300 block text-xs" id="last-update">Last updated : 20:00</span> -->
           </div>
         </div>
-        <div class="box-skeleton" id="current-day-forecast">
+        <div class="box-skeleton skeleton" id="current-day-forecast">
           <!-- <div class="text-sm mb-4">
                     <span><img src="" alt=""></span>
                     <span class="ml-2">Mastly Cloudy</span>
@@ -107,7 +107,7 @@
                     <span class="ml-2">Rain - 30%</span>
                 </div> -->
         </div>
-        <div class="relative overflow-hidden box-skeleton">
+        <div class="relative overflow-hidden box-skeleton skeleton">
           <img
             class="h-28 w-full brightness-50 rounded-lg"
             src="../assets/image/city-img.jpg"
@@ -126,13 +126,13 @@
       >
         <div class="pr-2">
           <h2
-            class="font-bold border-b border-slate-400 inline-block pb-px mb-4 box-skeleton"
+            class="font-bold border-b border-slate-400 inline-block pb-px mb-4 box-skeleton skeleton"
             id="week-titile"
           >
             Week
           </h2>
           <div
-            class="w-full flex overflow-x-auto space-x-2 pb-2 mb-10 box-skeleton"
+            class="w-full flex overflow-x-auto space-x-2 pb-2 mb-10 box-skeleton skeleton"
             id="week-forecast"
           >
             <!-- <div class="min-w-[80px] flex flex-col justify-between items-center space-y-3 bg-white rounded-lg p-2">
@@ -196,14 +196,14 @@
 
         <div id="highlights">
           <h2
-            class="font-bold border-b border-slate-400 inline-block pb-px mb-4 box-skeleton"
+            class="font-bold border-b border-slate-400 inline-block pb-px mb-4 box-skeleton skeleton"
             id="highlights-titile"
           ></h2>
           <div
             class="w-full flex flex-wrap justify-evenly gap-4 sm:gap-2 sm:overflow-y-auto sm:max-h-[420px] pr-2"
           >
             <div
-              class="w-[250px] sm:w-[170px] sm:grow lg:w-[220px] flex flex-col justify-between items-start space-y-3 bg-white rounded-lg py-4 px-8 sm:px-3 box-skeleton"
+              class="w-[250px] sm:w-[170px] sm:grow lg:w-[220px] flex flex-col justify-between items-start space-y-3 bg-white rounded-lg py-4 px-8 sm:px-3 box-skeleton skeleton"
               id="uv-index"
             >
               <!-- <h3 class="text-sm">UV index</h3>
@@ -211,7 +211,7 @@
             </div>
 
             <div
-              class="w-[250px] sm:w-[170px] sm:grow lg:w-[220px] flex flex-col justify-between items-start space-y-3 bg-white rounded-lg py-4 px-8 sm:px-3 box-skeleton"
+              class="w-[250px] sm:w-[170px] sm:grow lg:w-[220px] flex flex-col justify-between items-start space-y-3 bg-white rounded-lg py-4 px-8 sm:px-3 box-skeleton skeleton"
             >
               <h3 class="text-sm">Wind Status</h3>
               <span class="font-bold text-4xl" id="wind-kph"></span>
@@ -225,7 +225,7 @@
             </div>
 
             <div
-              class="w-[250px] sm:w-[170px] sm:grow lg:w-[220px] flex flex-col justify-between items-start space-y-3 bg-white rounded-lg py-4 px-8 sm:px-3 box-skeleton"
+              class="w-[250px] sm:w-[170px] sm:grow lg:w-[220px] flex flex-col justify-between items-start space-y-3 bg-white rounded-lg py-4 px-8 sm:px-3 box-skeleton skeleton"
             >
               <h3 class="text-sm">Sunrise & Sunset</h3>
               <div class="flex justify-between items-center">
@@ -247,7 +247,7 @@
             </div>
 
             <div
-              class="w-[250px] sm:w-[170px] sm:grow lg:w-[220px] flex flex-col justify-between items-start space-y-3 bg-white rounded-lg py-4 px-8 sm:px-3 box-skeleton"
+              class="w-[250px] sm:w-[170px] sm:grow lg:w-[220px] flex flex-col justify-between items-start space-y-3 bg-white rounded-lg py-4 px-8 sm:px-3 box-skeleton skeleton"
             >
               <h3 class="text-sm">Humidity</h3>
               <div
@@ -260,14 +260,14 @@
             </div>
 
             <div
-              class="w-[250px] sm:w-[170px] sm:grow lg:w-[220px] flex flex-col justify-between items-start space-y-3 bg-white rounded-lg py-4 px-8 sm:px-3 box-skeleton"
+              class="w-[250px] sm:w-[170px] sm:grow lg:w-[220px] flex flex-col justify-between items-start space-y-3 bg-white rounded-lg py-4 px-8 sm:px-3 box-skeleton skeleton"
             >
               <h3 class="text-sm">Visibility</h3>
               <span class="font-bold text-4xl" id="visibility"></span>
             </div>
 
             <div
-              class="w-[250px] sm:w-[170px] sm:grow lg:w-[220px] flex flex-col justify-between items-start space-y-3 bg-white rounded-lg py-4 px-8 sm:px-3 box-skeleton"
+              class="w-[250px] sm:w-[170px] sm:grow lg:w-[220px] flex flex-col justify-between items-start space-y-3 bg-white rounded-lg py-4 px-8 sm:px-3 box-skeleton skeleton"
             >
               <h3 class="text-sm">Air Qualify</h3>
               <div
