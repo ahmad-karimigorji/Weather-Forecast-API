@@ -55,8 +55,7 @@ class GeoLocation {
     );
     data = data.address.town || data.address.county || data.address.state
     //store response object
-    locationDiv.innerText = `${data.address.city}, ${data.address.country}`;
-    setUp()
+    setUp(data)
   };
 }
 
