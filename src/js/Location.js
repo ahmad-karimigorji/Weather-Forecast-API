@@ -7,7 +7,7 @@ class GeoLocation {
   constructor() {
     locationButton.addEventListener("click", () => {
       //Geolocation APU is used to get geographical position of a user and is available inside the navigator object
-      console.log("click");
+      LoadingAndMessageView.displaySkeletonLoading()
       if (navigator.geolocation) {
         //returns position(latitude and longitude) or error
         navigator.geolocation.getCurrentPosition(
