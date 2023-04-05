@@ -65,7 +65,7 @@ class ForecastView {
     <img class="w-10" src=${forecastday[0].day.condition.icon} alt=${forecastday[0].day.condition.text}>
     <span class="ml-2">${forecastday[0].day.condition.text}</span>
 </div>
-<div class="flex items-center text-sm mb-4">
+<div class="flex items-center text-sm">
     <img class="w-10" src="//cdn.weatherapi.com/weather/64x64/day/302.png" alt="rain">
     <span class="ml-2">Rain - ${forecastday[0].day.daily_chance_of_rain}%</span>
 </div>`;

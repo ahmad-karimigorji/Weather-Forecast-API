@@ -36,9 +36,9 @@
           <form
             class="flex items-center border-b border-slate-400 box-skeleton"
           >
-            <button type="submit" class="text-sm"
-              ><span><i class="fa fa-search"></i></span
-            ></button>
+            <button type="submit" class="text-sm"></button>
+              <span><i class="fa fa-search"></i></span>
+            </button>
             <input
               class="ml-2 outline-none bg-zinc-100 sm:grow"
               type="text"
@@ -72,9 +72,20 @@
               >&#8457;</label
             >
           </div>
+
+          <button
+            class="text-sm text-slate-500 mt-1.5 box-skeleton"
+            id="get-location"
+          >
+            <span class="mr-1 text-xs"><i class="fa fa-redo"></i></span>Get
+            Location
+          </button>
         </div>
 
-        <div class="w-full grow flex box-skeleton justify-center items-center" id="weather-img"></div>
+        <div
+          class="w-full grow flex box-skeleton justify-center items-center"
+          id="weather-img"
+        ></div>
         <div class="border-b border-slate-400 space-y-4 pb-10 box-skeleton">
           <div class="relative mb-px">
             <span class="text-7xl" id="temp"></span>
@@ -188,7 +199,9 @@
             class="font-bold border-b border-slate-400 inline-block pb-px mb-4 box-skeleton"
             id="highlights-titile"
           ></h2>
-          <div class="w-full flex flex-wrap justify-evenly gap-4 sm:gap-2 sm:overflow-y-auto sm:max-h-[420px] pr-2">
+          <div
+            class="w-full flex flex-wrap justify-evenly gap-4 sm:gap-2 sm:overflow-y-auto sm:max-h-[420px] pr-2"
+          >
             <div
               class="w-[250px] sm:w-[170px] sm:grow lg:w-[220px] flex flex-col justify-between items-start space-y-3 bg-white rounded-lg py-4 px-8 sm:px-3 box-skeleton"
               id="uv-index"
@@ -274,7 +287,7 @@
 
       <!-- message -->
       <div
-        class="message hidden bg-gray-100 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 px-10 py-12 align-center rounded-lg"
+        class="message min-w-[250px] hidden bg-gray-100 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 px-10 py-12 align-center rounded-lg"
       ></div>
       <div
         class="back-dray hidden w-full h-full absolute top-0 left-0 bg-gray-500/30 z-40"
