@@ -24,7 +24,6 @@ class GeoLocation {
 
   //Error Checks
   checkError = (error) => {
-    console.log(error);
     switch (error.code) {
       case error.PERMISSION_DENIED:
         {
@@ -50,12 +49,14 @@ class GeoLocation {
 
   showLocation = async (position) => {
     //We user the NOminatim API for getting actual address from latitude and longitude
-    let {data} = await axios.get(
-      `https://nominatim.openstreetmap.org/reverse?lat=${position.coords.latitude}&lon=${position.coords.longitude}&format=json`
+    let lat = position.coords.latitude;
+    let long = position.coords.longitude;
+    let { data } = await axios.get(
+      `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${long}&format=json`
     );
-    data = data.address.town || data.address.county || data.address.state
-    //store response object
-    setUp(data)
+
+    data = data.address.town || data.address.county || data.address.state;
+    setUp(data);
   };
 }
 
