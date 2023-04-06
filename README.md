@@ -1,6 +1,6 @@
 # Weather Forecast APP
 
-- Vanila JavaScript
+- Vanilla JavaScript
 - Tailwind CSS Library
 - Axios HTTP
 - [weatherapi](https://www.weatherapi.com/)
