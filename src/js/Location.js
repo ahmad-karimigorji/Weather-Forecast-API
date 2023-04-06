@@ -1,4 +1,5 @@
 import LoadingAndMessageView from "./LoadingAndMessageView.js";
+import { Storage } from "./Storage.js";
 import setUp from "./setUpData.js";
 const locationButton = document.getElementById("get-location");
 // let locationDiv = document.getElementById("location-details");
@@ -56,6 +57,7 @@ class GeoLocation {
     );
 
     data = data.address.town || data.address.county || data.address.state;
+    Storage.saveLocalLocation(data)
     setUp(data);
   };
 }
