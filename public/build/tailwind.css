@@ -501,6 +501,9 @@ video {
     max-width: 1536px;
   }
 }
+.static {
+  position: static;
+}
 .absolute {
   position: absolute;
 }
@@ -580,6 +583,9 @@ video {
 .h-full {
   height: 100%;
 }
+.max-h-\[100px\] {
+  max-height: 100px;
+}
 .min-h-screen {
   min-height: 100vh;
 }
@@ -600,6 +606,12 @@ video {
 }
 .w-7 {
   width: 1.75rem;
+}
+.w-2\/3 {
+  width: 66.666667%;
+}
+.w-10 {
+  width: 2.5rem;
 }
 .min-w-\[80px\] {
   min-width: 80px;
@@ -803,6 +815,9 @@ video {
 }
 .font-semibold {
   font-weight: 600;
+}
+.font-normal {
+  font-weight: 400;
 }
 .text-black {
   --tw-text-opacity: 1;
