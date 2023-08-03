@@ -36,7 +36,7 @@
           <form
             class="flex items-center border-b border-slate-400 box-skeleton skeleton"
           >
-            <button type="submit" class="text-sm"></button>
+            <button type="submit" class="text-sm">
               <span><i class="fa fa-search"></i></span>
             </button>
             <input
@@ -89,7 +89,7 @@
         <div class="border-b border-slate-400 space-y-4 pb-10 box-skeleton skeleton">
           <div class="relative mb-px">
             <span class="text-7xl" id="temp"></span>
-            <span class="text-4xl absolute">&#8451;</span>
+            <span class="text-4xl absolute" id="temp-symbol">&#8451;</span>
           </div>
           <div id="date-forecast">
             <!-- <span>Monday, </span>
@@ -269,16 +269,16 @@
             <div
               class="w-[250px] sm:w-[170px] sm:grow lg:w-[220px] flex flex-col justify-between items-start space-y-3 bg-white rounded-lg py-4 px-8 sm:px-3 box-skeleton skeleton"
             >
-              <h3 class="text-sm">Air Qualify</h3>
+              <h3 class="text-sm">Air Quality</h3>
               <div
                 class="flex w-full justify-between items-center"
-                id="air-qualify"
+                id="air-quality"
               >
                 <!-- <span class="font-bold text-2xl">67&#37;</span>
-                            <div class="" role="progressbar" name="airQualifyProgressbar" aria-valuemin="1" aria-valuemax="6" style="--airQualifyValue: 67"></div> -->
+                            <div class="" role="progressbar" name="airQualityProgressbar" aria-valuemin="1" aria-valuemax="6" style="--airQualityValue: 67"></div> -->
               </div>
               <div class="">
-                <span id="air-qualify-description"></span>
+                <span id="air-quality-description"></span>
               </div>
             </div>
           </div>
@@ -294,7 +294,6 @@
       ></div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
-    <script type="module" src="../src/js/app.js"></script>
+    <script src="../dist/bundle.js"></script>
   </body>
 </html>
