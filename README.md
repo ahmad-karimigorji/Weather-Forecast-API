@@ -4,7 +4,7 @@ This app is a project that enables you to search for the weather forecast of any
 
 
 - Vanilla JavaScript
-- -Typescript
+- Typescript
 - Tailwind CSS Library
 - Axios HTTP
 - [weatherapi](https://www.weatherapi.com/)
